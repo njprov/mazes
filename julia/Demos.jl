@@ -7,8 +7,14 @@ module Demos
     c21 = Cell(2,1)
     Cells.link!(c11, c12)
     Cells.link!(c11, c21)
-    println(c11.links)
+    #println(c11.links)
     Cells.unlink!(c11, c12)
-    println(c11.links)
+    #println(c11.links)
+
+    include("Grids.jl")
+    using .Grids
+
+    g = Grid(2,3)
+    println(g)
 
 end
