@@ -8,12 +8,12 @@ struct Cell
 end
 Cell(row, col) = Cell(row, col, Dict())
 
-function link!(a::Cell, b::Cell, bidirectional::Bool=true) # do i need the bool type on bidirectional if i assign true as default?
+function link!(a, b, bidirectional=true)
     a.links[b] = true
     if bidirectional link!(b, a, false) end
 end
 
-function unlink!(a::Cell, b::Cell, bidirectional::Bool=true)
+function unlink!(a, b, bidirectional=true)
     delete!(a.links, b)
     if bidirectional unlink!(b, a, false) end
 end
