@@ -1,21 +1,21 @@
-module Maxes
-export Maxe
+module Mazes
+export Maze
 
 using Graphs
 
-struct Maxe
+struct Maze
     dim::Tuple # TODO
     graph::SimpleGraph
 end
-function Maxe(dim)
+function Maze(dim)
     graph = SimpleGraph(prod(dim))
-    return Maxe(dim, graph)
+    return Maze(dim, graph)
 end
 
-function Base.show(io::IO, maxe::Maxe)
-    if length(maxe.dim) == 2
+function Base.show(io::IO, maze::Maze)
+    if length(maze.dim) == 2
         empty = "   "
-        rows, cols = maxe.dim
+        rows, cols = maze.dim
         println(io, "+" * "---+"^cols)
         for row = 1:rows
             sides = "|"
@@ -26,14 +26,14 @@ function Base.show(io::IO, maxe::Maxe)
                 right = cols * (col) + row
                 down = cols * (col - 1) + row + 1
                 sides = sides * empty * (
-                    if has_edge(maxe.graph, cell, right)
+                    if has_edge(maze.graph, cell, right)
                         " "
                     else
                         "|"
                     end
                 )
                 floors = floors * (
-                    if has_edge(maxe.graph, cell, down)
+                    if has_edge(maze.graph, cell, down)
                         "   "
                     else
                         "---"
@@ -44,7 +44,7 @@ function Base.show(io::IO, maxe::Maxe)
             println(io, floors)
         end
     else
-        print("not implemented")
+        print("Higher dimensions are not implemented.")
     end
 end
 
