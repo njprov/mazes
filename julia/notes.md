@@ -15,3 +15,7 @@ worked for me(tm) on wsl debian.
 ## workflow
 
 https://docs.julialang.org/en/v1/manual/workflow-tips/#A-basic-editor/REPL-workflow
+
+## graphs
+
+replaced classes with graph structure
