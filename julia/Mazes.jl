@@ -68,7 +68,7 @@ function generate_btree!(maze)
     end
 end
 
-function generate_sidewinder!(maze)
+function generate_sidewinder!(maze) # BUG
     if length(maze.dim) == 2
         rows, cols = maze.dim
         run = []
