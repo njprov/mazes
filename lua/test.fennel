@@ -1,0 +1,3 @@
+(let [x (+ 89 5.2)
+      f (fn [abc] (print (* 2 abc)))]
+  (f x))
